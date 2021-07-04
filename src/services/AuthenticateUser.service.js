@@ -37,7 +37,7 @@ class AuthenticateUserService {
                 id: user._id,
                 name: user.fullname,
                 username: user.username,
-                admin: user.admin,
+                role: user.role,
             },
         };
     }
