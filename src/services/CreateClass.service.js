@@ -9,7 +9,14 @@ class CreateClassService {
 
         const classPlan = await Class.create({ name, module, date });
 
-        return classPlan;
+        return {
+            _id: classPlan._id,
+            name: classPlan.name,
+            module: classPlan.module._id,
+            date: classPlan.date,
+            createdAt: classPlan.createdAt,
+            updatedAt: classPlan.updatedAt,
+        };
     }
 }
 
