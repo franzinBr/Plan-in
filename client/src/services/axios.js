@@ -7,5 +7,9 @@ export function getAPIClient() {
 
     api.defaults.withCredentials = true;
 
+    api.interceptors.response.use(undefined, (err) => {
+        return err.response;
+    });
+
     return api;
 }
