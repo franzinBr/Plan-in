@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="51.2" height="51.2" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #004b73;
+        stroke: #000;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Elipse_1" data-name="Elipse 1" class="cls-1" d="M257.5-1C399.713-1,515,114.063,515,256S399.713,513,257.5,513,0,397.937,0,256,115.287-1,257.5-1Z"/>
+  <image id="Camada_1" data-name="Camada 1" x="95" y="95" width="322" height="322" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB+UlEQVRYhb2Wz0sVURiG36QsMoQ2tTFBubYwcN+qsGVJJGor9V/IlcsWbYO46sZFu1at/AM0DVJaCIohilASCIL4Y5Hlqp6YOiOfw7n33Llzz/3gwL3f9873vGdmzjkjIPZ4AWwDv4EVYNjyYsPL+GOiGQamDHoc6AJemdxETAMW/iRTmzS1wRjwadf8EOivoHnpNHsxZ/4toP2TiGLAk8a7xsQNj7Y3dRlj5g+AK8CW+58swXajLQFHrjbTCPhbAx8w+evAhst/dbmbwA+XWwJaisJnDPyxp34N2HH1L8B3A/+nKQIvB+B2rBrtR1trBvw2sOmD12vAwocC2m7gZyV4PQYs/HlAm2y9x9lnXsRAXvhJCJ7HgF3nIwHtXQNfDvWuBW7XefZgyY575plXnXmtBqqdaj74rzzwkIHo8GoGmgKvZMDCQ297TxG4z0AeeHct6zyPgTeu2QHwrBlwa6DDzHwucFHJwD8VgVsDY1yMcoULes157t3b6zWQbjaLwJn7Pe2B59pk8hhIPxRuAX3mXqQm7oROtSIGOl3j5GOyxRXuA/suP+s+qRoOTw2MuubvTOEq8D7zXjQcnozLkh7qf7RKei3pqaSSLsYHSY8UIS4Bp5LaPK3nJX2WtCBpKQY8ieQObEjqkrQmaVXSoqR1SSexoOch6S/Nf5heWB2wowAAAABJRU5ErkJggg=="/>
+</svg>
