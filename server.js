@@ -3,6 +3,7 @@ const express = require('express');
 require('express-async-errors');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const Database = require('./src/configs/database');
