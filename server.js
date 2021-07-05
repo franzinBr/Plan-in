@@ -6,7 +6,7 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const Database = require('./src/configs/database');
-const router = require('./src/routes');
+const router = require('./src/routes/v1/routes');
 const ErrorHandler = require('./src/middlewares/errorHandler');
 
 Database.connect();

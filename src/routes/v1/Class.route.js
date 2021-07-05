@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const CreateClassController = require('../controllers/CreateClass.controller');
-const DeleteClassController = require('../controllers/DeleteClass.controller');
-const EditClassController = require('../controllers/EditClass.controller');
-const ListClassesFromModuleController = require('../controllers/listClassesFromModule.controller');
-const EnsureAuthenticated = require('../middlewares/EnsureAuthenticated');
-const EnsureAdmin = require('../middlewares/EnsureAdmin');
+const CreateClassController = require('../../controllers/CreateClass.controller');
+const DeleteClassController = require('../../controllers/DeleteClass.controller');
+const EditClassController = require('../../controllers/EditClass.controller');
+const ListClassesFromModuleController = require('../../controllers/listClassesFromModule.controller');
+const EnsureAuthenticated = require('../../middlewares/EnsureAuthenticated');
+const EnsureAdmin = require('../../middlewares/EnsureAdmin');
 
 const router = Router();
 

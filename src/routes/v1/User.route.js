@@ -1,8 +1,8 @@
 const { Router } = require('express');
-const AuthenticateUserController = require('../controllers/AuthenticateUser.controller');
-const CreateUserController = require('../controllers/CreateUser.controller');
-const LogoutUserController = require('../controllers/LogoutUser.controller');
-const RefreshAuthTokenController = require('../controllers/RefreshAuthToken.controller');
+const AuthenticateUserController = require('../../controllers/AuthenticateUser.controller');
+const CreateUserController = require('../../controllers/CreateUser.controller');
+const LogoutUserController = require('../../controllers/LogoutUser.controller');
+const RefreshAuthTokenController = require('../../controllers/RefreshAuthToken.controller');
 
 const router = Router();
 

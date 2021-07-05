@@ -14,7 +14,7 @@ class AuthenticateUserController {
 
         res.cookie('refreshtoken', refreshToken, {
             httpOnly: true,
-            path: '/refresh',
+            path: '/v1/refresh',
             maxAge: ConvertTimes.convert(process.env.REFRESH_TOKEN_EXPIRE),
         });
         res.cookie('aux', true, {
