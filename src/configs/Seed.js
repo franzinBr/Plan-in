@@ -1,12 +1,13 @@
 const User = require('../models/User');
+const adminUser = require('./adminUser.json');
 const { hash, genSalt } = require('bcryptjs');
 
 class Seed {
     constructor() {
-        this.defaultAdminName = 'admin';
-        this.defaultAdminUsername = 'admin';
-        this.defaultAdminEmail = 'admin@admin.com';
-        this.password = 'admin';
+        this.defaultAdminName = adminUser.defaultAdminName;
+        this.defaultAdminUsername = adminUser.defaultAdminUsername;
+        this.defaultAdminEmail = adminUser.defaultAdminEmail;
+        this.password = adminUser.password;
     }
 
     async checkExistsAdmin() {
