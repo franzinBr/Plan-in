@@ -1,0 +1,576 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Plan-in API",
+        "description": "API used to register modules and classes",
+        "contact": {
+            "email": "alan.franzin2011@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3080/v1",
+            "description": "Development API"
+        }
+    ],
+    "paths": {
+        "/modules": {
+            "post": {
+                "summary": "Creation of modules",
+                "description": "this route is used for the creation of modules",
+                "tags": ["Modules"],
+                "security": [{ "bearerAuth": [] }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Module"
+                            },
+                            "examples": {
+                                "module": {
+                                    "value": {
+                                        "name": "JavaScript"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "409": {
+                        "description": "Module Already Exits"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Module_created"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get All Modules",
+                "description": "Get all modules with the number of classes in each module",
+                "tags": ["Modules"],
+
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/modules/all": {
+            "get": {
+                "summary": "Get All Modules and Classes",
+                "description": "Get all modules with their respective classes",
+                "tags": ["Modules"],
+                "security": [{ "bearerAuth": [] }],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/modules/{id}": {
+            "delete": {
+                "summary": "Delete Module",
+                "description": "Delete Module by id",
+                "tags": ["Modules"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Module Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "This module does not exist"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Edit Module",
+                "description": "Edit Module by id",
+                "tags": ["Modules"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Module Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Module"
+                            },
+                            "examples": {
+                                "module": {
+                                    "value": {
+                                        "name": "New Name"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Name identical to the original"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "This module does not exist"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/class": {
+            "post": {
+                "summary": "Creation of Classes",
+                "description": "this route is used for the creation of class",
+                "tags": ["Classes"],
+                "security": [{ "bearerAuth": [] }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Class"
+                            },
+                            "examples": {
+                                "module": {
+                                    "value": {
+                                        "name": "DOM",
+                                        "module_id": "1823971298",
+                                        "date": "1625524023983"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Module does not exists"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Class_created"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/class/{module_id}": {
+            "get": {
+                "summary": "Get Classes",
+                "description": "Get all classes from a module",
+                "tags": ["Classes"],
+                "parameters": [
+                    {
+                        "name": "module_id",
+                        "in": "path",
+                        "description": "Module Id",
+                        "required": true
+                    }
+                ],
+
+                "responses": {
+                    "404": {
+                        "description": "This module does not exist"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/class/{id}": {
+            "put": {
+                "summary": "Edit Class",
+                "description": "Edit Module by id",
+                "tags": ["Classes"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Class_edited"
+                            },
+                            "examples": {
+                                "changeName": {
+                                    "value": {
+                                        "name": "Pointers"
+                                    }
+                                },
+                                "changeModule": {
+                                    "value": {
+                                        "module_id": "60dcebfdba05415e78fd941d"
+                                    }
+                                },
+                                "changeData": {
+                                    "value": {
+                                        "date": "1625530625011"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "No fields have been modified"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "This Class does not exists/This Module doest not exists"
+                    },
+
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Class",
+                "description": "Delete Class by id",
+                "tags": ["Classes"],
+                "security": [{ "bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "This Class does not exist"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "Login",
+                "description": "Route to log in users",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Login"
+                            },
+                            "examples": {
+                                "Login": {
+                                    "value": {
+                                        "userOrEmail": "example",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid Credentials"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "summary": "Logout",
+                "description": "Route to log out users",
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/signup": {
+            "post": {
+                "summary": "Sign Up",
+                "description": "Route to create Users",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "Login": {
+                                    "value": {
+                                        "fullname": "User Example",
+                                        "username": "example",
+                                        "email": "example@example.com",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Fields Required is empty"
+                    },
+                    "409": {
+                        "description": "The user already exists"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/refresh": {
+            "post": {
+                "summary": "Refresh",
+                "description": "Route to refresh auth token",
+                "tags": ["Users"],
+                "responses": {
+                    "401": {
+                        "description": "Invalid Token"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Module": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The module name"
+                    }
+                }
+            },
+            "Module_created": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "module": {
+                        "type": "object",
+                        "properties": {
+                            "_id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            },
+                            "classes": {
+                                "type": "array",
+                                "items": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "Class": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type ": "string",
+                        "description": "The class name"
+                    },
+                    "module_id": {
+                        "type": "string",
+                        "description": "The id module"
+                    },
+                    "date": {
+                        "type": "number",
+                        "description": "The date in timestamp that the class takes place"
+                    }
+                }
+            },
+            "Class_created": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean"
+                    },
+                    "module": {
+                        "type": "object",
+                        "properties": {
+                            "_id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "module": {
+                                "type": "string"
+                            },
+                            "date": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "Class_edited": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "required": false
+                    },
+                    "module_id": {
+                        "type": "string",
+                        "required": false
+                    },
+                    "date": {
+                        "type": "string",
+                        "required": false
+                    }
+                }
+            },
+            "Login": {
+                "type": "object",
+                "properties": {
+                    "userOrEmail": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "fullname": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "username": {
+                        "type": "string",
+                        "required": "true"
+                    },
+                    "email": {
+                        "type": "string",
+                        "required": "true"
+                    },
+                    "password": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
