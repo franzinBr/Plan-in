@@ -13,6 +13,7 @@ import {
 const Home = () => {
     const [modules, setModules] = React.useState([]);
     const [classes, setClasses] = React.useState([]);
+    const [showEmpty, setShowEmpty] = React.useState(false);
 
     React.useEffect(() => {
         async function fetchModules() {
@@ -33,6 +34,7 @@ const Home = () => {
                             key={module._id}
                             module={module}
                             setClasses={setClasses}
+                            setShowEmpty={setShowEmpty}
                         />
                     ))}
             </Modules>
@@ -42,7 +44,7 @@ const Home = () => {
                         <ClassFrame key={_class._id} _class={_class} />
                     ))}
             </Classes>
-            {classes.length === 0 && (
+            {showEmpty && (
                 <EmptyDiv className="animeRight">
                     <EmptyImg />
                     <p>
