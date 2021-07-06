@@ -332,28 +332,96 @@
             "post": {
                 "summary": "Login",
                 "description": "Route to log in users",
-                "tags": ["Users"]
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Login"
+                            },
+                            "examples": {
+                                "Login": {
+                                    "value": {
+                                        "userOrEmail": "example",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid Credentials"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
         },
         "/logout": {
             "post": {
                 "summary": "Logout",
                 "description": "Route to log out users",
-                "tags": ["Users"]
+                "tags": ["Users"],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
         },
         "/signup": {
             "post": {
                 "summary": "Sign Up",
                 "description": "Route to create Users",
-                "tags": ["Users"]
+                "tags": ["Users"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "Login": {
+                                    "value": {
+                                        "fullname": "User Example",
+                                        "username": "example",
+                                        "email": "example@example.com",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Fields Required is empty"
+                    },
+                    "409": {
+                        "description": "The user already exists"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
         },
         "/refresh": {
             "post": {
                 "summary": "Refresh",
                 "description": "Route to refresh auth token",
-                "tags": ["Users"]
+                "tags": ["Users"],
+                "responses": {
+                    "401": {
+                        "description": "Invalid Token"
+                    },
+                    "200": {
+                        "description": "OK"
+                    }
+                }
             }
         }
     },
@@ -459,6 +527,40 @@
                     "date": {
                         "type": "string",
                         "required": false
+                    }
+                }
+            },
+            "Login": {
+                "type": "object",
+                "properties": {
+                    "userOrEmail": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "fullname": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "username": {
+                        "type": "string",
+                        "required": "true"
+                    },
+                    "email": {
+                        "type": "string",
+                        "required": "true"
+                    },
+                    "password": {
+                        "type": "string",
+                        "required": true
                     }
                 }
             }
