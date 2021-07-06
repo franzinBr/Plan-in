@@ -64,6 +64,8 @@ yarn dev
 by default the server will start on port ***3080***,
 therefore the server will be at http://localhost:3080
 
+if the port is changed, open the ***client\src\services*** file and modify the **baseURL** attribute, informing the new port
+
 ***Start the client:*** 
 ```
 cd client
