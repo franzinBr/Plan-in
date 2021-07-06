@@ -1,4 +1,8 @@
-# Plan-in
+
+<p align="center" width="100%">
+    <img width="80%" src="https://user-images.githubusercontent.com/24235241/124618606-ecb00380-de45-11eb-9e6a-606eb93572fe.png"> 
+</p>
+<h1 align="center">Plan-in</h1>
 
 ### Demo
 <https://plan-in.herokuapp.com/>
@@ -44,3 +48,34 @@ I recommend using the mongo db cloud service: [MongoDB Atlas](https://www.youtub
   - AUTH_TOKEN_EXPIRE
   - REFRESH_TOKEN_SECRET
   - REFRESH_TOKEN_EXPIRE
+## 🟢 Running
+***Start the server:*** 
+```
+yarn start
+```
+Note: to start the server using nodemon use the following command:
+```
+yarn dev
+```
+by default the server will start on port ***3080***,
+therefore the server will be at http://localhost:3080
+
+***Start the client:*** 
+```
+cd client
+yarn start
+```
+
+by default the server will start on port ***3000***,
+therefore the client will be at http://localhost:3000
+
+## Documentation
+
+if you want to see more details on how the API works, just access the documentation at: http://localhost:3080/api-docs
+
+<p align="center" width="100%">
+    <img width="80%" src="https://user-images.githubusercontent.com/24235241/124623036-9c3aa500-de49-11eb-9962-9a4cc924a7f0.png"> 
+</p>
+
+
+
