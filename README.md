@@ -4,6 +4,10 @@
 </p>
 <h1 align="center">Plan-in</h1>
 
+[![video app run](https://user-images.githubusercontent.com/24235241/124618606-ecb00380-de45-11eb-9e6a-606eb93572fe.png)](https://youtu.be/p1HcFKKivbY "Plan-in")
+<p align="center">https://youtu.be/p1HcFKKivbY</p>
+<h1 align="center">Video DEMO</h1>
+
 ### Demo
 <https://plan-in.herokuapp.com/>
 
@@ -68,6 +72,23 @@ yarn start
 
 by default the server will start on port ***3000***,
 therefore the client will be at http://localhost:3000
+
+## Dashboard
+only users with admin privileges can access the panel, by default when they start the application the admin user will be:
+```
+Username: admin
+Password: admin
+```
+but if you want you can change this user in src\configs\adminUser.json
+```
+{
+    "defaultAdminName": "admin",
+    "defaultAdminUsername": "admin",
+    "defaultAdminEmail": "admin@admin.com",
+    "password": "admin"
+}
+
+```
 
 ## Documentation
 
