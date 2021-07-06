@@ -46,7 +46,7 @@ I recommend using the mongo db cloud service: [MongoDB Atlas](https://www.youtub
 
 ## 🔧 Configuration
 - Rename the **env.sample** file to **.env**
-- Open the config.env file and fill it in with the required information
+- Open the .env file and fill it in with the required information
   - MONGO_URI
   - AUTH_TOKEN_SECRET
   - AUTH_TOKEN_EXPIRE
