@@ -2,7 +2,7 @@ const { Router } = require('express');
 const CreateClassController = require('../../controllers/CreateClass.controller');
 const DeleteClassController = require('../../controllers/DeleteClass.controller');
 const EditClassController = require('../../controllers/EditClass.controller');
-const ListClassesFromModuleController = require('../../controllers/listClassesFromModule.controller');
+const ListClassesFromModuleController = require('../../controllers/ListClassesFromModule.controller');
 const EnsureAuthenticated = require('../../middlewares/EnsureAuthenticated');
 const EnsureAdmin = require('../../middlewares/EnsureAdmin');
 
@@ -31,6 +31,6 @@ router.put(
     EnsureAdmin.verify,
     editClassController.handle
 );
-router.get('/class/:id', listClassesFromModule.handle);
+router.get('/class/:module_id', listClassesFromModule.handle);
 
 module.exports = router;

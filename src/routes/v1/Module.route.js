@@ -16,27 +16,27 @@ const listModulesController = new ListModulesController();
 const listAllController = new ListAllController();
 
 router.post(
-    '/module',
+    '/modules',
     EnsureAuthenticated.verify,
     EnsureAdmin.verify,
     createModuleController.handle
 );
 
 router.delete(
-    '/module/:id',
+    '/modules/:id',
     EnsureAuthenticated.verify,
     EnsureAdmin.verify,
     deleteModuleController.handle
 );
 router.put(
-    '/module/:id',
+    '/modules/:id',
     EnsureAuthenticated.verify,
     EnsureAdmin.verify,
     editModuleController.handle
 );
-router.get('/module', listModulesController.handle);
+router.get('/modules', listModulesController.handle);
 router.get(
-    '/module/all',
+    '/modules/all',
     EnsureAuthenticated.verify,
     EnsureAdmin.verify,
     listAllController.handle

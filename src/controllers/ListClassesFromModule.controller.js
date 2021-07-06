@@ -1,8 +1,8 @@
-const ListClassesFromModuleService = require('../services/listClassesFromModule.service');
+const ListClassesFromModuleService = require('../services/ListClassesFromModule.service');
 
 class ListClassesFromModuleController {
     async handle(req, res) {
-        const { id: _id } = req.params;
+        const { module_id: _id } = req.params;
 
         const listClassesFromModule = new ListClassesFromModuleService();
         const classes = await listClassesFromModule.execute(_id);
