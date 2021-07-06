@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from '../../components/Form/Button/Button';
-import Input from '../../components/Form/Input/Input';
 import { DashB } from './Dashboard.style';
 import ModalCreateModule from './ModalCreateModule/ModalCreateModule';
 import { useState } from 'react';
 import { listModulesAllRequest } from '../../services/module';
-import ModuleKeeper from './ModuleKeeper/ModuleKeeper';
+const ModuleKeeper = React.lazy(() => import('./ModuleKeeper/ModuleKeeper'));
+
 const Dashboard = () => {
     const [showModal, setShowModal] = useState(false);
     const [modules, setModules] = React.useState([]);
@@ -34,11 +34,16 @@ const Dashboard = () => {
                     setModules={setModules}
                 />
             </section>
-            <section className="modules">
-                {modules && (
-                    <ModuleKeeper modules={modules} setModules={setModules} />
-                )}
-            </section>
+            <React.Suspense fallback={<div>loading...</div>}>
+                <section className="modules">
+                    {modules && (
+                        <ModuleKeeper
+                            modules={modules}
+                            setModules={setModules}
+                        />
+                    )}
+                </section>
+            </React.Suspense>
         </DashB>
     );
 };

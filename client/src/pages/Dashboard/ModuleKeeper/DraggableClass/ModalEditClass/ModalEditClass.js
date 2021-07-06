@@ -54,6 +54,7 @@ const ModalEditClass = ({ showModal, setShowModal, _class, setModules }) => {
             setShowModal={setShowModal}
             reset={reset}
             success={success}
+            setError={setError}
         >
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Input
