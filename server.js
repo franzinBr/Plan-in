@@ -6,9 +6,19 @@ const helmet = require('helmet');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./src/Documentation/swagger.json');
 const Database = require('./src/configs/database');
 const router = require('./src/routes/v1/routes');
-const ErrorHandler = require('./src/middlewares/errorHandler');
+const ErrorHandler = require('./src/middlewares/ErrorHandler');
+const EnvVerify = require('./src/utils/EnvVerify');
+
+try {
+    EnvVerify.checkEnv();
+} catch (error) {
+    console.log(error.message);
+    return;
+}
 
 Database.connect();
 const app = express();
@@ -23,6 +33,7 @@ app.use(
 );
 app.use(cors({ origin: process.env.FRONT_URL, credentials: true }));
 app.use(cookieParser());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(router);
 
 app.use(ErrorHandler.handle);
