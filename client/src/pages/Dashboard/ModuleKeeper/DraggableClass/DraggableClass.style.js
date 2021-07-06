@@ -12,6 +12,10 @@ export const ClassItem = styled.li`
     align-items: center;
     border-left: 6px solid ${(props) => props.theme.colors.primary};
     justify-content: space-between;
+
+    @media (max-width: 470px) {
+        height: 7rem;
+    }
 `;
 export const Content = styled.div`
     h1 {
@@ -35,6 +39,10 @@ export const Actions = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @media (max-width: 470px) {
+        right: -5%;
+        height: 7rem;
+    }
 `;
 
 export const ModalBox = styled.div``;
@@ -42,6 +50,10 @@ export const ModalBox = styled.div``;
 export const DeleteButton = styled(Delete)`
     cursor: pointer;
     margin-top: 1rem;
+
+    @media (max-width: 470px) {
+        //margin-top: 1rem;
+    }
 `;
 export const EditButton = styled(Edit)`
     cursor: pointer;

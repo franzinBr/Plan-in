@@ -9,11 +9,12 @@ export const ModulesBox = styled.div`
         grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 648px) {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 380px) {
+    @media (max-width: 470px) {
         grid-template-columns: 1fr;
+        padding: 3rem;
     }
 `;

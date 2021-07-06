@@ -21,7 +21,11 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="links">
-                    {isAdmin === true && <Link to="/dashboard">Dashboard</Link>}
+                    {isAdmin === true && (
+                        <Link to="/dashboard">
+                            <p>Dashboard</p>
+                        </Link>
+                    )}
                     {isAuthenticated ? (
                         <p onClick={clickLogout}>Logout</p>
                     ) : (

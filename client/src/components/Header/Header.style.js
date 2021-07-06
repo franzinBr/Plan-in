@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
         padding: 0 2rem;
 
         .logo {
-            font-size: 3rem;
+            font-size: 4rem;
             h1 {
                 color: ${(props) => props.theme.colors.text};
             }
@@ -27,11 +27,32 @@ export const HeaderContainer = styled.header`
 
         .links {
             display: flex;
-            font-size: 1.8rem;
+            font-size: 2rem;
 
             p {
-                margin-left: 0.5rem;
+                position: relative;
+                margin-right: 2rem;
+                color: ${(props) => props.theme.colors.text};
                 cursor: pointer;
+            }
+
+            p::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 3px;
+                bottom: -20%;
+                left: 0;
+                background: ${(props) => props.theme.colors.primary};
+                transition: all 0.3s ease-in;
+            }
+
+            p:hover {
+                color: ${(props) => props.theme.colors.text_second};
+            }
+
+            p:hover::after {
+                width: 100%;
             }
         }
     }

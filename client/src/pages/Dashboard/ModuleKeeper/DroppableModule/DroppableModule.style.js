@@ -12,9 +12,13 @@ export const ModuleContainer = styled.div`
 `;
 
 export const ModuleList = styled.ul`
-    padding: 3rem;
+    padding: 4.5rem 3rem;
     list-style-type: none;
     min-height: 30rem;
+
+    @media (max-width: 470px) {
+        min-height: 50rem;
+    }
 `;
 
 export const ModuleInfo = styled.div`
@@ -29,6 +33,11 @@ export const ModuleInfo = styled.div`
         color: ${(props) => props.theme.colors.primary};
         font-size: 2.5rem;
         text-align: center;
+    }
+    @media (max-width: 470px) {
+        h1 {
+            font-size: 3.5rem;
+        }
     }
 `;
 
@@ -54,6 +63,10 @@ export const Actions = styled.div`
     align-self: center;
     display: flex;
     width: 22%;
+    @media (max-width: 470px) {
+        width: 18%;
+        bottom: -30%;
+    }
 `;
 
 export const DeleteButton = styled(Delete)`
@@ -70,4 +83,9 @@ export const AddButton = styled(Add)`
     position: absolute;
     bottom: -20%;
     right: 1%;
+
+    @media (max-width: 470px) {
+        width: 12%;
+        bottom: -30%;
+    }
 `;

@@ -31,4 +31,9 @@ export const AccountContainer = styled.div`
             flex: 1;
         }
     }
+    @media (max-width: 430px) {
+        .image {
+            flex: 0.5;
+        }
+    }
 `;

@@ -54,7 +54,7 @@ export const Class = styled.div`
         .calendar {
             width: 8%;
             height: 100%;
-            margin-right: 0.2rem;
+            margin-right: 0.8rem;
             svg {
                 width: 100%;
                 height: 100%;
@@ -70,5 +70,20 @@ export const Class = styled.div`
 
     &:hover {
         border: 4px solid ${(props) => props.theme.colors.primary};
+    }
+
+    @media (max-width: 520px) {
+        height: 70rem;
+        .title {
+            h1 {
+                font-size: 5rem;
+            }
+        }
+
+        .date {
+            p {
+                font-size: 2.5rem;
+            }
+        }
     }
 `;
