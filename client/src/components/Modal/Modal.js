@@ -7,8 +7,14 @@ import {
     CloseIcon,
 } from './Modal.style';
 
-const Modal = ({ showModal, setShowModal, success, reset, children }) => {
-    const [error, setError] = React.useState(null);
+const Modal = ({
+    showModal,
+    setShowModal,
+    setError,
+    success,
+    reset,
+    children,
+}) => {
     const modalRef = React.useRef();
 
     const keyPressEvent = React.useCallback(

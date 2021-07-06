@@ -8,7 +8,6 @@ import Header from './components/Header/Header';
 import { AuthProvider } from './contexts/AuthContext';
 import Account from './pages/Account/Account';
 import Dashboard from './pages/Dashboard/Dashboard';
-import ProtectedRoute from './components/Helper/ProtectedRoute/ProtectedRoute';
 import AdminRoute from './components/Helper/AdminRoute/AdminRoute';
 import NotFound from './pages/NotFound/NotFound';
 

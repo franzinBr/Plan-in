@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }) => {
         setUser({});
         setIsAuthenticated(false);
         setIsAdmin(false);
-        const res = await logoutRequest();
+        await logoutRequest();
         api.defaults.headers['Authorization'] = '';
         navigate('/');
     };
@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
                         setUser({});
                         setIsAuthenticated(false);
                         setIsAdmin(false);
-                        const res = await logoutRequest();
+                        await logoutRequest();
                         api.defaults.headers['Authorization'] = '';
                         navigate('/');
                         setLoading(false);
