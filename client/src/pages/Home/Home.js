@@ -2,7 +2,13 @@ import React from 'react';
 import ClassFrame from '../../components/ClassFrame/ClassFrame';
 import ModuleFrame from '../../components/ModuleFrame/ModuleFrame';
 import { listModulesRequest } from '../../services/module';
-import { HomeContainer, Modules, Classes } from './Home.style';
+import {
+    HomeContainer,
+    Modules,
+    Classes,
+    EmptyDiv,
+    EmptyImg,
+} from './Home.style';
 
 const Home = () => {
     const [modules, setModules] = React.useState([]);
@@ -36,6 +42,15 @@ const Home = () => {
                         <ClassFrame key={_class._id} _class={_class} />
                     ))}
             </Classes>
+            {classes.length === 0 && (
+                <EmptyDiv className="animeRight">
+                    <EmptyImg />
+                    <p>
+                        It seems that no classes were registered in this module,
+                        check back later...
+                    </p>
+                </EmptyDiv>
+            )}
         </HomeContainer>
     );
 };
